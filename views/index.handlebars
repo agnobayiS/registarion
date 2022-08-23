@@ -1,0 +1,68 @@
+<body class="back">
+    <div class="container back">
+        <br>
+        {{!-- style="background-repeat: no-repeat;"> --}}
+        <div style="margin-top: 100px">
+
+            <h1 class="center">Registration Numbers</h1>
+
+            <div class="massage" style="color: red;">
+                <h2 style=" padding-left:43% ">{{errorMassage}}</h2>
+            </div>
+            <br>
+            <form action="/registration" method="POST" class="input-class">
+                <div class="filter">
+                    <div style="font-size:50px;">
+                        <input type="text" name="regNumber" class="regNumberEnterd" placeholder="Enter a registration"
+                            style="font-size:20px ;">
+
+                    </div>
+
+                    <div style="padding-right:100px">
+
+                        <button class="addRegNumber btn blue" type="submit">ADD REGNUMBER</button>
+
+                    </div>
+
+
+                </div>
+                <div class="filter">
+                    <dir>
+                        <h2 style="padding-right: 30px;">Select Town Bellow</h2>
+                    </dir>
+                    <div>
+                        <select name="town" class="reg">
+                            <option value="" disabled selected hidden>SELECT TOWN</option>
+                            <option value="capeTown" class="dropdown">CAPE TOWN</option>
+                            <option value="easternCape" class="dropdown">PAARL</option>
+                            <option value="bellville" class="dropdown">BELLVILLE</option>
+                            <option value="allReg" class="dropdown">ALL REGISTRETIONS</option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </form>
+            {{!--
+            <hr style="padding-left: 20px;padding-right: 20px;"> --}}
+            <br></br>
+            <div class="regNumbers"
+                style="margin-left: 650px; margin-right:650px; background-color:lightblue; height:200px; border-radius: 25px; border: 2px solid #609; ">
+                {{#each  regNumbers}}
+                {{this.regnumber}}
+                {{/each}}
+            </div>
+            <br>
+            <div>
+
+                <button class="clearRegNumber " style="margin-left: 45%;">CLEAR DATA</button>
+
+            </div>
+
+            <br> <br> <br> <br>
+
+        </div>
+
+    </div>
+
+</body>

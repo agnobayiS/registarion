@@ -1,0 +1,20 @@
+CREATE TABLE REGTOWNS (
+id SERIAL PRIMARY KEY,
+TOWN text NOT NULL,
+TOWN_CODE text NOT NULL
+);
+
+CREATE TABLE registration(
+id SERIAL PRIMARY KEY,
+REGNUMBER text NOT NULL,
+REG_CODE INT NOT NULL,
+foreign key (REG_CODE) references REGTOWNS(id)
+);
+
+
+insert into REGTOWNS (TOWN,TOWN_CODE) values ('CAPE_TOWN' ,'CA');
+insert into REGTOWNS (TOWN,TOWN_CODE) values ('BELLIVEL' ,'CY');
+insert into REGTOWNS (TOWN,TOWN_CODE) values ('EASTERN_CAPE' ,'EC');
+
+
+
