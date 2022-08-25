@@ -73,8 +73,20 @@ app.post('/registration',async function (req, res) {
 
 })
 
+app.post('/filter',async function(req,res){
+
+    let town = req.body.town
+    console.log(town);
+        res.render("index",{
+        regNumbers: await regFF.getTown(town)
+
+    })
+
+})
+
 app.get('/clear', async function (req, res) {
-     await db.clear()
+
+     await regFF.clear()
     // req.flash('info', "registrations cleared!");
 
 

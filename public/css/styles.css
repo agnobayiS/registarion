@@ -1,4 +1,4 @@
-.regNumberStyle{
+.regNumberStyle {
     background-color: rgb(191, 153, 191);
     border: 0.1em solid;
     border-radius: 0.25em;
@@ -9,65 +9,80 @@
     font-weight: bold;
     float: left;
 }
-.massage{
+
+.massage {
     height: 1em;
     font-weight: bold;
     color: red;
     margin-left: 100px;
-    
+
 
 }
-.blue{
+
+.blue {
     /* background-color:lightblue; */
     height: 30px;
     margin-left: 100px;
 
 }
-.regNumberEnterd{
+
+.regNumberEnterd {
     border-radius: 25px;
     border: 2px solid #609;
-    padding: 20px; 
+    padding: 20px;
     width: 200px;
-    height: 15px; 
+    height: 15px;
 
 
 }
-.back{
-  background-color: rgb(199, 180, 180);
+
+.back {
+    background-color: rgb(199, 180, 180);
 }
-.center{
+
+.center {
     text-align: center;
-    
+
 }
-.filter{
+
+.filter {
     text-align: center;
-    /* display: flex; */
-    /* margin-left: 100px; */
-    /* padding-top: 100px; */
+   
 }
-.reg{
+
+.reg {
     border-radius: 25px;
-    border: 2px ;
+    border: 2px;
     padding-left: 40px;
     width: 200px;
-    height: 50px; 
+    height: 50px;
     background-color: lightblue;
+    transition-duration: 0.4s;
 }
-.addRegNumber{
-    
+
+.addRegNumber {
+
     margin-top: 40px;
     border-radius: 25px;
     border: 2px solid #609;
-    padding: 20px; 
+    padding: 20px;
     padding-top: 10px;
     width: 200px;
-    height: 15px; 
+    height: 15px;
     background-color: lightblue;
+    transition-duration: 0.4s;
 }
-.dropdown{
-    font-size:20px;
+
+.dropdown {
+    font-size: 20px;
+    /* transition-duration: 0.4s; */
 }
-.regNumber{
+.reg:hover{
+    background-color: rgb(150, 106, 172);
+    color: white;
+}
+
+.regNumber {
     background-color: rgb(181, 148, 186);
     border: 0.1em solid;
     border-radius: 0.25em;
@@ -78,13 +93,25 @@
     font-weight: bold;
     float: left;
 }
-.clearRegNumber{
+
+.clearRegNumber {
     margin-top: 40px;
     border-radius: 25px;
     border: 2px solid #609;
-    padding: 20px; 
+    padding: 20px;
     padding-top: 10px;
     width: 200px;
-    height: 15px; 
+    height: 15px;
     background-color: lightblue;
+    transition-duration: 0.4s;
+}
+
+.clearRegNumber:hover {
+    background-color: rgb(150, 106, 172);
+    color: white;
+}
+.addRegNumber:hover{
+
+    background-color: rgb(150, 106, 172);
+    color: white;
 }

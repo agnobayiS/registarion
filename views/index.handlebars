@@ -2,7 +2,7 @@
     <div class="container back">
         <br>
         {{!-- style="background-repeat: no-repeat;"> --}}
-        <div style="margin-top: 50px">
+        {{!-- <div style="margin-top: 50px"> --}}
 
             <h1 class="center">Registration Numbers</h1>
 
@@ -28,6 +28,8 @@
 
 
                 </div>
+            </form>
+            <form action="/filter" method="post">
                 <div class="filter">
                     <dir>
                         <h2 style="padding-right: 30px;">Select Town Bellow</h2>
@@ -35,41 +37,43 @@
                     <div>
                         <select name="town" class="reg">
                             <option value="" disabled selected hidden>SELECT TOWN</option>
-                            <option value="capeTown" class="dropdown">CAPE TOWN</option>
-                            <option value="easternCape" class="dropdown">PAARL</option>
-                            <option value="bellville" class="dropdown">BELLVILLE</option>
-                            <option value="allReg" class="dropdown">ALL REGISTRETIONS</option>
+                            <option  value="CAPE_TOWN" class="dropdown">CAPE TOWN</option>
+                            <option value="BELLIVEL" class="dropdown">BELLVILLE</option>
+                            <option value="EASTERN_CAPE" class="dropdown">EASTERN CAPE</option>
+                            
 
                         </select>
                     </div>
+                    <br>
+                    <button type="submit" class="clearRegNumber">GET</button>
+                </div>
+            </form>
+            
+            <br></br>
+
+            <div class="regNumbers"
+                style="margin-left: 600px; margin-right:600px; background-color:lightblue; min-height: 200px; max-height:500px; border-radius: 25px; border: 2px solid #609; ">
+
+
+                {{#each regNumbers}}
+                <div class="regNumberStyle">{{this.regnumber}}</div>
+                {{/each}}
+
+
+            </div>
+
+            <form action="/clear" method="get">
+                <div>
+
+                    <button class="clearRegNumber " type="submit" style=" margin-left:45%; ">CLEAR DATA</button>
 
                 </div>
             </form>
-            {{!--
-            <hr style="padding-left: 20px;padding-right: 20px;"> --}}
-            <br></br>
-            
-            <div class="regNumbers"
 
-                style="margin-left: 600px; margin-right:600px; background-color:lightblue; min-height: 200px; max-height:500px; border-radius: 25px; border: 2px solid #609; ">
-    
-
-                {{#each  regNumbers}}
-                <div class="regNumberStyle" >{{this.regnumber}}</div>
-                  {{/each}}
-
-            
-            </div>
-            <br>
-            <div>
-
-                <button class="clearRegNumber " type="reset" style="">CLEAR DATA</button>
-
-            </div>
 
             <br> <br> <br> <br>
 
-        </div>
+        {{!-- </div> --}}
 
     </div>
 
