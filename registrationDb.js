@@ -61,8 +61,10 @@ module.exports = function registration(db) {
 
     async function clear() {
         await db.none('delete from registration')
-        await db.none('delete from regCount')
+        
     }
+
+    
 
 
     return {

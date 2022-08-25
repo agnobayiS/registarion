@@ -47,15 +47,18 @@
             <hr style="padding-left: 20px;padding-right: 20px;"> --}}
             <br></br>
             <div class="regNumbers"
-                style="margin-left: 650px; margin-right:650px; background-color:lightblue; height:200px; border-radius: 25px; border: 2px solid #609; ">
+                style="margin-left: 600px; margin-right:600px; background-color:lightblue; height:200px; border-radius: 25px; border: 2px solid #609; ">
+                <div  style="padding-left: 30px ; padding-top:20px; font-size:x-large; ">
                 {{#each  regNumbers}}
-                {{this.regnumber}}
+                 {{this.regnumber}} 
                 {{/each}}
+
+                </div>
             </div>
             <br>
             <div>
 
-                <button class="clearRegNumber " style="margin-left: 45%;">CLEAR DATA</button>
+                <button class="clearRegNumber " type="reset" style="margin-left: 45%;">CLEAR DATA</button>
 
             </div>
 

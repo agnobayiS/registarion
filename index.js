@@ -42,15 +42,7 @@ app.use(express.json())
 
 app.get('/', async function (req, res) {
     
-    // const regNumbers = req.body.regNumber;
-    // let town = req.body.town
     
-    // if(regNumbers){
-    //     await db.getTown(regNumbers)
-    // }
-    // if(town){
-    //     await db.getTown(town)
-    // }
 
    let regNumbers = await regFF.getAll();
     
@@ -58,9 +50,7 @@ app.get('/', async function (req, res) {
         regNumbers
 
     })
-    
-    // console.log(town)
-    // console.log(regNumbers)
+
 
 });
 
@@ -76,6 +66,14 @@ app.post('/registration',async function (req, res) {
 
     res.redirect('/')
 
+})
+
+app.get('/clear', async function (req, res) {
+     await db.clear()
+    // req.flash('info', "registrations cleared!");
+
+
+    res.redirect('/')
 })
 
 
