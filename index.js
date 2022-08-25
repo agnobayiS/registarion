@@ -1,12 +1,15 @@
-const express = require('express')
-const exphbs = require('express-handlebars');
-const registrationFunction = require('./registrationDb');
+// const express = require('express');
+import express from "express";
+import exphbs from'express-handlebars';
+import registrationFunction from './registrationDb.js';
 
 const app = express();
 
 
 
-const pgp = require('pg-promise')({});
+import pgPromise from 'pg-promise';
+
+const pgp = pgPromise ({})
 
 const local_database_url = 'postgres://siyabonga:siya@localhost:5432/ragistrations';
 const connectionString = process.env.DATABASE_URL || local_database_url;
@@ -23,16 +26,18 @@ if (process.env.NODE_ENV == "production") {
 const db = pgp(config);
 
 
-const regFF = require('./registrationDb')(db)
+import regFF1 from './registrationDb.js'
+const regFF = regFF1(db) 
+
 
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'))
 
-const fs = require('fs');
-const handlebars = require('handlebars');
-const { ppid } = require('process');
+import fs from 'fs';
+import handlebars from 'handlebars';
+import { ppid } from 'process';
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())

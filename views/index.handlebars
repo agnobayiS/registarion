@@ -47,11 +47,13 @@
             <hr style="padding-left: 20px;padding-right: 20px;"> --}}
             <br></br>
             <div class="regNumbers"
+
                 style="margin-left: 600px; margin-right:600px; background-color:lightblue; height:200px; border-radius: 25px; border: 2px solid #609; ">
-                <div  style="padding-left: 30px ; padding-top:20px; font-size:x-large; ">
+                <div  style="padding-left: 30px ; padding-top:20px; font-size:large; ">
+
                 {{#each  regNumbers}}
-                 {{this.regnumber}} 
-                {{/each}}
+                <div class="regNumberStyle" >{{this.regnumber}}</div>
+                  {{/each}}
 
                 </div>
             </div>

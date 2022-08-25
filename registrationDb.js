@@ -1,4 +1,4 @@
-module.exports = function registration(db) {
+function registration(db) {
 
     var regEx = /[CY|EC|CA]{2}(\s|\-)[0-9]{3}(\s|\-)[0-9]{3}/gi
 
@@ -77,3 +77,4 @@ module.exports = function registration(db) {
     }
 
 }
+export default registration;
