@@ -1,5 +1,5 @@
-const assert = require('assert');
-const regNumbers = require('../registrationDb');
+import assert from 'assert';
+import regNumbers from ;
 const pgPromise = require('pg-promise')
 const pg = require("pg");
 

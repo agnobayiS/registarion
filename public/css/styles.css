@@ -1,3 +1,9 @@
+
+/* *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
 .regNumberStyle {
     background-color: rgb(191, 153, 191);
     border: 0.1em solid;
@@ -19,12 +25,6 @@
 
 }
 
-.blue {
-    /* background-color:lightblue; */
-    height: 30px;
-    margin-left: 100px;
-
-}
 
 .regNumberEnterd {
     border-radius: 25px;
@@ -61,14 +61,15 @@
 }
 
 .addRegNumber {
-
+    height: 30px;
+    margin-left: 100px;
     margin-top: 40px;
     border-radius: 25px;
     border: 2px solid #609;
     padding: 20px;
     padding-top: 10px;
     width: 200px;
-    height: 15px;
+    /* height: 15px; */
     background-color: lightblue;
     transition-duration: 0.4s;
 }
@@ -112,6 +113,22 @@
 }
 .addRegNumber:hover{
 
+    background-color: rgb(150, 106, 172);
+    color: white;
+}
+
+.clearRegNumbers{
+    margin-top: 40px;
+    border-radius: 25px;
+    border: 2px solid #609;
+    padding: 20px;
+    padding-top: 10px;
+    width: 400px;
+    height: 15px;
+    background-color: lightblue;
+    transition-duration: 0.4s;
+}
+.clearRegNumbers:hover{
     background-color: rgb(150, 106, 172);
     color: white;
 }
