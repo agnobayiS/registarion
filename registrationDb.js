@@ -28,10 +28,10 @@ function registration(db) {
             let townId = await db.oneOrNone('select id from regtowns where town_code = $1 ', [townCode])
             await db.none('insert into registration (regnumber, reg_code) values ($1,$2)', [newRegNo, townId.id])
         }
-        
 
 
     }
+   
 
     async function getAllTwo(){
         let all = await db.manyOrNone('select regnumber from registration')
@@ -57,7 +57,8 @@ function registration(db) {
         return getData
 
     }
-    const checkReg = async num => {
+    async function checkReg(num){
+
         let reg = await db.any('select regnumber from registration where regnumber = $1', [num])
         return reg.length >= 1 ? true : false;
     }

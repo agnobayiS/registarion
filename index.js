@@ -87,12 +87,11 @@ app.post('/registration', async function (req, res) {
             await regFF.eachTown(regNumbers)
         }
     }
-    if (regNumbers === "") {
+    if (regNumbers === "" ) {
 
-        req.flash('info','Enter a valid registration');
+        req.flash('info','Enter registration');
         
     }
-  
 
 
     res.redirect('/')
@@ -102,11 +101,16 @@ app.post('/registration', async function (req, res) {
 app.post('/filter', async function (req, res) {
 
     let town = req.body.town
-
+    let number;
+    if(town === "all"){
+      number =  await regFF.getAll()
+    }else{
+     number =  await regFF.getTown(town)
+    }
 
     console.log(town);
     res.render("index", {
-        regNumbers: await regFF.getTown(town)
+        regNumbers: number
 
     })
 
