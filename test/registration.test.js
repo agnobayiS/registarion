@@ -1,7 +1,7 @@
 import assert from 'assert';
-import regNumbers from ;
-const pgPromise = require('pg-promise')
-const pg = require("pg");
+import regNumbers from '../registrationDb.js'
+import pgPromise from 'pg-promise'
+import pg from "pg"
 
 const pgp = pgPromise({})
 
@@ -30,14 +30,14 @@ describe("registration database test", async function () {
         await registration.capeTownReg("ca 321 123")
         await registration.capeTownReg("cy 123 321")
 
-        // await greet.clear()
+        console.log(registration)
 
         assert.deepEqual( [] ,await registration.getTown() )
 
 
 
 
-    });
+    })
 
     // it("should display nothing if the clear botton is pressed and the are 1 names in the database", async function () {
 
@@ -94,5 +94,5 @@ describe("registration database test", async function () {
 
     after(async function () {
         await db.manyOrNone('Truncate registration');
-    });
+    })
 })

@@ -3,11 +3,18 @@
         <br>
 
         <h1 class="center">Registration Numbers</h1>
-        <h2 style=" padding-left:43% ">  {{ messages.info}}   </h2>
+        {{#if messages.info}}
+        <div class="massage" style="color: red; padding-left:37% ">
+            <h1> {{messages.info}}</h1>
+        </div>
+        {{/if}}
+
+        <br>
+       
 
         <form action="/registration" method="POST" class="input-class">
             <div class="filter">
-                <p> Eg.. CA 123 123 /CY 123-123 /123-123 EC /123 123 EC </p>
+                <p> Eg.. CA 123 123 /CY-123-123 /123-123-EC /123 123 EC </p>
                 <div style="font-size:50px;">
 
                     <input type="text" name="regNumber" class="regNumberEnterd" placeholder="Enter a registration"
@@ -61,23 +68,17 @@
 
 
         <br><br>
-        <form action="/clear" method="GET">
-            <div style="margin-left: 40%; margin-right:40%; margin-top:25px; ">
+
+
+        <div style="margin-left: 40%; margin-right:40%; margin-top:25px; ">
+            <a href="/clear">
                 <button class="clearRegNumbers" type="submit">CLEAR ALL DATA</button>
-
-
-            </div>
-        </form>
+            </a>
+        </div>
 
 
         <br>
 
-
-
-
-
-
-
     </div>
-<script src="timeout.js"></script>
+    <script src="timeout.js"></script>
 </body>
