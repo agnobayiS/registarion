@@ -1,9 +1,4 @@
 
-/* *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-} */
 .regNumberStyle {
     background-color: rgb(191, 153, 191);
     border: 0.1em solid;
@@ -131,4 +126,4 @@
 .clearRegNumbers:hover{
     background-color: rgb(150, 106, 172);
     color: white;
-}
+} 

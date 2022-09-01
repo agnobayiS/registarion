@@ -10,13 +10,13 @@ function registration(db) {
         let newRegNo = newRegNo1.toUpperCase()
         let townCode = '';
 
-        console.log(newRegNo)
+        // console.log(newRegNo)
 
 
         const isWC = regEx.test(newRegNo);
         const isEC = regEx2.test(newRegNo)
 
-        console.log("is WP " + isWC);
+        // console.log("is WP " + isWC);
         if (isWC) {
             townCode = newRegNo.substring(0, 2);
         }
@@ -57,6 +57,7 @@ function registration(db) {
         return getData
 
     }
+
     async function checkReg(num){
 
         let reg = await db.any('select regnumber from registration where regnumber = $1', [num])

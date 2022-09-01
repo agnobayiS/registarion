@@ -7,11 +7,11 @@ const pgp = pgPromise({})
 
 
 
-const local_database_url = 'postgres://siyabonga:siya@localhost:5432/registration';
+const local_database_url = 'postgres://siyabonga:siya@localhost:5432/ragistrations';
 const connectionString = process.env.DATABASE_URL || local_database_url;
 
 const db = pgp(connectionString);
-const registration = regNumbers(db)
+// const registration = regNumbers(db)
 
 
 describe("registration database test", async function () {
@@ -24,71 +24,135 @@ describe("registration database test", async function () {
     });
 
 
-    it("should display all registration from cape town in the database", async function () {
+    it("should display all registration from (BELLIVEL) in the database", async function () {
+        let registration = regNumbers(db)
 
-        await registration.capeTownReg("ca 123 321")
-        await registration.capeTownReg("ca 321 123")
-        await registration.capeTownReg("cy 123 321")
+        await registration.eachTown("ca 123 321")
+        await registration.eachTown("ca 321 123")
+        await registration.eachTown("cy 123 321")
 
-        console.log(registration)
+        assert.deepEqual([
+             {
+              "regnumber": "CY 123 321"
+             }
+            ]
+       ,await registration.getTown("BELLIVEL") )
 
-        assert.deepEqual( [] ,await registration.getTown() )
+
+
+
+    })
+    it("should display all registration from (CAPE TOWN) in the database", async function () {
+        let registration = regNumbers(db)
+
+        await registration.eachTown("ca 123 321")
+        await registration.eachTown("ca 321 123")
+        await registration.eachTown("cy 123 321")
+
+        assert.deepEqual([
+             {
+              "regnumber": "CA 123 321"
+             },
+             {
+              "regnumber": "CA 321 123"
+             }
+            ]
+       ,await registration.getTown("CAPE_TOWN") )
+
+
+
+
+    })
+    it("should display all registration from (EASTERN CAPE) in the database", async function () {
+        let registration = regNumbers(db)
+
+        await registration.eachTown("123 321 EC")
+        await registration.eachTown("ca 321 123")
+        await registration.eachTown("cy 123 321")
+
+        assert.deepEqual([
+             {
+              "regnumber": "123 321 EC"
+             }
+            ]
+       ,await registration.getTown("EASTERN_CAPE") )
+
+
+
+
+    })
+    it("should display all registration in the database", async function () {
+        let registration = regNumbers(db)
+
+        await registration.eachTown("123 321 EC")
+        await registration.eachTown("ca 321 123")
+        await registration.eachTown("cy 123 321")
+
+        assert.deepEqual([
+           
+            {
+             "regnumber": "CA 321 123"
+            },
+            {
+             "regnumber": "CY 123 321"
+            },
+            {
+                "regnumber": "123 321 EC"
+
+            },
+           ]
+       ,await registration.getAll() )
+
+
+
+
+    })
+    it("should clear all registration in the database", async function () {
+        let registration = regNumbers(db)
+
+        await registration.eachTown("123 321 EC")
+        await registration.eachTown("ca 321 123")
+        await registration.eachTown("cy 123 321")
+
+    
+        assert.deepEqual( null ,await registration.clear() )
 
 
 
 
     })
 
-    // it("should display nothing if the clear botton is pressed and the are 1 names in the database", async function () {
+    it("should return true if the registration is already enterd in the database", async function () {
+        let registration = regNumbers(db)
 
-    //     await greet.greetName("athi")
-    //     await greet.clear()
+        await registration.eachTown("123 321 EC")
+        await registration.eachTown("ca 321 123")
+        await registration.eachTown("cy 123 321")
 
-
-    //     assert.deepEqual( [] , await greet.getNames() )
-
-    // });
-    
-    // it(" the counter should display (2) if the are 2 names in the dataabse table", async function () {
-
-    //     await greet.greetName("siya");
-    //     await greet.greetName("athi");
-
-    //     assert.equal(2, await greet.counter())
-    // });
-   
-    
-    // it("the persons counter ", async function () {
-
-    //     await greet.greetName("siya");
-    //     await greet.greetName("athi");
-    //     await greet.greetName("siya");
-    //     await greet.greetName("siya");
-
-
-    //     assert.deepEqual( {
-    //         counter: 3,
-    //         greeted_names: 'Siya'
-    //       }
-    //       , await greet.userCounter('Siya'))
-    // });
-    
-    
-    // it("should display (  0 ) if the is no names in the dataabse table", async function () {
         
+        assert.equal( true ,await registration.checkReg("123 321 EC") )
+
+
+
+
+    })
+    it("should return false if the registration is not allready enterd", async function () {
+        let registration = regNumbers(db)
+
+        await registration.eachTown("123 321 EC")
+        await registration.eachTown("ca 321 123")
+        await registration.eachTown("cy 123 321")
+
         
-    //     assert.equal(0, await greet.counter())
-    // });
+        assert.equal( false ,await registration.checkReg("223 321 EC") )
+
+
+
+
+    })
     
-    // it("should display name if name is the name in the database", async function () {
 
-    //     await greet.greetName("siya");
-    //     assert.deepEqual([ { greeted_names: 'Siya' } ]
-    //     , await greet.getNames())
-
-    // });
-
-
+    
 
 
 

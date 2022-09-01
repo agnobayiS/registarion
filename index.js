@@ -3,7 +3,6 @@ import exphbs from 'express-handlebars';
 import session from 'express-session';
 import flash from 'express-flash';
 import registrationFunction from './registrationDb.js';
-import error from './registration-logic.js'
 
 
 const app = express();
@@ -76,10 +75,12 @@ app.post('/registration', async function (req, res) {
     console.log("enter")
 
     const regNumbers = req.body.regNumber;
-    let allreg = await regFF.getAllTwo();
+
 
     if (regNumbers) {
+        
         console.log(await regFF.checkReg(regNumbers));
+        
         if (await regFF.checkReg(regNumbers) === true) {
             req.flash('info','Duplicate Number');
 
@@ -101,12 +102,19 @@ app.post('/registration', async function (req, res) {
 app.post('/filter', async function (req, res) {
 
     let town = req.body.town
+
     let number;
     if(town === "all"){
       number =  await regFF.getAll()
     }else{
      number =  await regFF.getTown(town)
     }
+
+    // if(town && await regFF.getAll() === ""){
+    //     req.flash('info','No registration found');
+    // }
+
+    
 
     console.log(town);
     res.render("index", {
