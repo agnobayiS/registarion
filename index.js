@@ -2,8 +2,7 @@ import express from "express";
 import exphbs from 'express-handlebars';
 import session from 'express-session';
 import flash from 'express-flash';
-import registrationFunction from './registrationDb.js';
-
+import routs from './routs/registration-routs.js'
 
 const app = express();
 
@@ -36,7 +35,6 @@ const db = pgp(config);
 
 
 import regFF1 from './registrationDb.js'
-const regFF = regFF1(db)
 
 
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
@@ -54,83 +52,13 @@ app.use(express.json())
 
 app.use(flash());
 
-app.get('/', async function (req, res) {
+const regFF = regFF1(db)
+const regRouts = routs(regFF)
 
-
-
-    let regNumbers = await regFF.getAll();
-   
-
-    res.render("index", {
-        regNumbers
-
-
-    })
-
-
-});
-
-app.post('/registration', async function (req, res) {
-
-    console.log("enter")
-
-    const regNumbers = req.body.regNumber;
-
-
-    if (regNumbers) {
-        
-        console.log(await regFF.checkReg(regNumbers));
-        
-        if (await regFF.checkReg(regNumbers) === true) {
-            req.flash('info','Duplicate Number');
-
-        } else {
-            await regFF.eachTown(regNumbers)
-        }
-    }
-    if (regNumbers === "" ) {
-
-        req.flash('info','Enter registration');
-        
-    }
-
-
-    res.redirect('/')
-
-})
-
-app.post('/filter', async function (req, res) {
-
-    let town = req.body.town
-
-    let number;
-    if(town === "all"){
-      number =  await regFF.getAll()
-    }else{
-     number =  await regFF.getTown(town)
-    }
-
-    // if(town && await regFF.getAll() === ""){
-    //     req.flash('info','No registration found');
-    // }
-
-    
-
-    console.log(town);
-    res.render("index", {
-        regNumbers: number
-
-    })
-
-})
-
-app.get('/clear', async function (req, res) {
-
-    await regFF.clear()
-    req.flash('info', "registrations cleared!");
-
-    res.redirect('/')
-})
+app.get('/',regRouts.home);
+app.post('/registration',regRouts.check);
+app.post('/filter',regRouts.filter);
+app.get('/clear',regRouts.clear);
 
 
 
