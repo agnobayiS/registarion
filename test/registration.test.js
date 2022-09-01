@@ -86,7 +86,7 @@ describe("registration database test", async function () {
 
         await registration.eachTown("123 321 EC")
         await registration.eachTown("ca 321 123")
-        await registration.eachTown("cy 123 321")
+    
 
         assert.deepEqual([
            
@@ -94,10 +94,7 @@ describe("registration database test", async function () {
              "regnumber": "CA 321 123"
             },
             {
-             "regnumber": "CY 123 321"
-            },
-            {
-                "regnumber": "123 321 EC"
+            "regnumber": "123 321 EC"
 
             },
            ]
