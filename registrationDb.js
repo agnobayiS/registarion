@@ -10,13 +10,13 @@ function registration(db) {
         let newRegNo = newRegNo1.toUpperCase()
         let townCode = '';
 
-        // console.log(newRegNo)
+    
 
 
         const isWC = regEx.test(newRegNo);
         const isEC = regEx2.test(newRegNo)
 
-        // console.log("is WP " + isWC);
+    
         if (isWC) {
             townCode = newRegNo.substring(0, 2);
         }

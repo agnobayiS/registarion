@@ -56,10 +56,7 @@ function registration(db){
         }else{
          number =  await db.getTown(town)
         }
-    
-        // if(town && await regFF.getAll() === ""){
-        //     req.flash('info','No registration found');
-        // }
+
     
         
     
