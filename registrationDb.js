@@ -66,7 +66,7 @@ function registration(db) {
 
 
     async function clear() {
-        await db.none('delete from registration')    
+       return  await db.none('delete from registration')    
     }
 
     

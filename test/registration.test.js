@@ -111,8 +111,9 @@ describe("registration database test", async function () {
         await registration.eachTown("ca 321 123")
         await registration.eachTown("cy 123 321")
 
+        await registration.clear()
     
-        assert.deepEqual( null ,await registration.clear() )
+        assert.deepEqual([],await registration.getAll() )
 
 
 
