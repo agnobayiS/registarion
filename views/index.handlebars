@@ -2,7 +2,7 @@
     <div class="containe back">
         <br>
 
-        <h1 class="center">Registration Numbers</h1>
+        <h1 class="center ">REGISTRATION</h1>
         {{#if messages.info}}
         <div class="massage" style="color: red; padding-left:37% ">
             <h1> {{messages.info}}</h1>
@@ -14,7 +14,7 @@
 
         <form action="/registration" method="POST" class="input-class">
             <div class="filter">
-                <p> Eg.. CA 123 123 /CY 123-123 /123-123 EC /123 123 EC </p>
+                <p style="color:white ;" > Eg.. CA 123 123 /CY 123-123 /123-123 EC /123 123 EC </p>
                 <div style="font-size:50px;">
 
                     <input type="text" name="regNumber" class="regNumberEnterd" placeholder="Enter a registration"
@@ -33,9 +33,7 @@
         </form>
         <form action="/filter" method="post">
             <div class="filter">
-                <dir>
-                    <h2 style="padding-right: 30px;">Select Town Bellow</h2>
-                </dir>
+                <br>
                 <div>
                     <select name="town" class="reg">
                         <option value="" disabled selected hidden>SELECT TOWN</option>
@@ -47,7 +45,7 @@
 
                     </select>
                 </div>
-                <br>
+                {{!-- <br> --}}
                 <button type="submit" class="clearRegNumber">GET TOWN</button>
             </div>
         </form>
@@ -55,7 +53,7 @@
         <br></br>
 
         <div class="regNumbers"
-            style="margin-left: 600px; margin-right:600px; background-color:lightblue; height:fit-content; border-radius: 25px; border: 2px solid #609; ">
+            style="margin-left: 33%; margin-right:33%; "> 
 
 
             {{#each regNumbers}}
@@ -70,7 +68,7 @@
         <br><br>
 
 
-        <div style="margin-left: 40%; margin-right:40%; margin-top:25px; ">
+        <div style="margin-left: 40%; margin-right:40%; ">
             <a href="/clear">
                 <button class="clearRegNumbers" type="submit">CLEAR ALL DATA</button>
             </a>
