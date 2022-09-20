@@ -55,7 +55,6 @@ function registration(db) {
         let getId = await db.oneOrNone('select id from regtowns where town = $1', [town])
         let getData = await db.manyOrNone('select distinct regnumber from registration where reg_code = $1', [getId.id])
         return getData
-
     }
 
     async function checkReg(num){
@@ -63,6 +62,8 @@ function registration(db) {
         let reg = await db.any('select regnumber from registration where regnumber = $1', [num])
         return reg.length >= 1 ? true : false;
     }
+
+   
 
 
     async function clear() {
