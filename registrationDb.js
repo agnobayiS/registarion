@@ -1,7 +1,5 @@
 function registration(db) {
 
-
-
     async function eachTown(newRegNo1) {
         var regEx = /[CY|EC|CA]{2}(\s)[0-9]{3}(\s|\-)[0-9]{3}/gi
 
@@ -9,9 +7,6 @@ function registration(db) {
 
         let newRegNo = newRegNo1.toUpperCase()
         let townCode = '';
-
-
-
 
         const isWC = regEx.test(newRegNo);
         const isEC = regEx2.test(newRegNo)
@@ -47,9 +42,6 @@ function registration(db) {
 
     }
 
-
-
-
     async function getTown(town) {
 
         let getId = await db.oneOrNone('select id from regtowns where town = $1', [town])
@@ -63,13 +55,9 @@ function registration(db) {
         return reg.length >= 1 ? true : false;
     }
 
-
-
-
     async function clear() {
         return await db.none('delete from registration')
     }
-
 
 
 

@@ -49,14 +49,6 @@ function registration(db) {
 
         }
 
-
-
-
-
-
-
-
-
         res.redirect('/')
     }
 
@@ -81,9 +73,6 @@ function registration(db) {
         }
 
 
-
-
-
         console.log(town);
         res.render("index", {
             regNumbers: number
@@ -92,7 +81,6 @@ function registration(db) {
 
 
     }
-
 
     async function clear(req, res) {
 
@@ -104,8 +92,6 @@ function registration(db) {
 
 
 
-
-
     return {
         home,
         check,
@@ -113,8 +99,6 @@ function registration(db) {
         clear
 
     }
-
-
 
 }
 export default registration;

@@ -1,7 +1,6 @@
 import assert from 'assert';
 import regNumbers from '../registrationDb.js'
 import pgPromise from 'pg-promise'
-import pg from "pg"
 
 const pgp = pgPromise({})
 
