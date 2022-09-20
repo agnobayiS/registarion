@@ -11,7 +11,6 @@ const local_database_url = 'postgres://siyabonga:siya@localhost:5432/ragistratio
 const connectionString = process.env.DATABASE_URL || local_database_url;
 
 const db = pgp(connectionString);
-// const registration = regNumbers(db)
 
 
 describe("registration database test", async function () {
@@ -32,11 +31,11 @@ describe("registration database test", async function () {
         await registration.eachTown("cy 123 321")
 
         assert.deepEqual([
-             {
-              "regnumber": "CY 123 321"
-             }
-            ]
-       ,await registration.getTown("BELLIVEL") )
+            {
+                "regnumber": "CY 123 321"
+            }
+        ]
+            , await registration.getTown("BELLIVEL"))
 
 
 
@@ -50,14 +49,14 @@ describe("registration database test", async function () {
         await registration.eachTown("cy 123 321")
 
         assert.deepEqual([
-             {
-              "regnumber": "CA 123 321"
-             },
-             {
-              "regnumber": "CA 321 123"
-             }
-            ]
-       ,await registration.getTown("CAPE_TOWN") )
+            {
+                "regnumber": "CA 123 321"
+            },
+            {
+                "regnumber": "CA 321 123"
+            }
+        ]
+            , await registration.getTown("CAPE_TOWN"))
 
 
 
@@ -71,11 +70,11 @@ describe("registration database test", async function () {
         await registration.eachTown("cy 123 321")
 
         assert.deepEqual([
-             {
-              "regnumber": "123 321 EC"
-             }
-            ]
-       ,await registration.getTown("EASTERN_CAPE") )
+            {
+                "regnumber": "123 321 EC"
+            }
+        ]
+            , await registration.getTown("EASTERN_CAPE"))
 
 
 
@@ -86,19 +85,19 @@ describe("registration database test", async function () {
 
         await registration.eachTown("123 321 EC")
         await registration.eachTown("ca 321 123")
-    
+
 
         assert.deepEqual([
-           
+
             {
-             "regnumber": "CA 321 123"
+                "regnumber": "CA 321 123"
             },
             {
-            "regnumber": "123 321 EC"
+                "regnumber": "123 321 EC"
 
             },
-           ]
-       ,await registration.getAll() )
+        ]
+            , await registration.getAll())
 
 
 
@@ -112,8 +111,8 @@ describe("registration database test", async function () {
         await registration.eachTown("cy 123 321")
 
         await registration.clear()
-    
-        assert.deepEqual([],await registration.getAll() )
+
+        assert.deepEqual([], await registration.getAll())
 
 
 
@@ -127,8 +126,8 @@ describe("registration database test", async function () {
         await registration.eachTown("ca 321 123")
         await registration.eachTown("cy 123 321")
 
-        
-        assert.equal( true ,await registration.checkReg("123 321 EC") )
+
+        assert.equal(true, await registration.checkReg("123 321 EC"))
 
 
 
@@ -141,16 +140,16 @@ describe("registration database test", async function () {
         await registration.eachTown("ca 321 123")
         await registration.eachTown("cy 123 321")
 
-        
-        assert.equal( false ,await registration.checkReg("223 321 EC") )
+
+        assert.equal(false, await registration.checkReg("223 321 EC"))
 
 
 
 
     })
-    
 
-    
+
+
 
 
 

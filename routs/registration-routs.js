@@ -7,7 +7,7 @@ function registration(db) {
 
 
         let regNumbers = await db.getAll();
-       
+
         res.render("index", {
             regNumbers
 
@@ -31,8 +31,6 @@ function registration(db) {
 
         if (regNumbers) {
 
-            console.log(await db.checkReg(regNumbers));
-
             if (await db.checkReg(regNumbers) === true) {
                 req.flash('info', 'Duplicate Number');
 
@@ -49,12 +47,11 @@ function registration(db) {
             req.flash('info', 'Invalid registration Number');
 
 
-            // console.log("fjdsbfjsbdbddfjhbsadjhc")
         }
 
 
 
-        // let newRegNo = newRegNo1.toUpperCase()
+
 
 
 

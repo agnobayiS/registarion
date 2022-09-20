@@ -42,10 +42,6 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'))
 
-import fs from 'fs';
-import handlebars from 'handlebars';
-import { ppid } from 'process';
-
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
@@ -55,10 +51,10 @@ app.use(flash());
 const regFF = regFF1(db)
 const regRouts = routs(regFF)
 
-app.get('/',regRouts.home);
-app.post('/registration',regRouts.check);
-app.post('/filter',regRouts.filter);
-app.get('/clear',regRouts.clear);
+app.get('/', regRouts.home);
+app.post('/registration', regRouts.check);
+app.post('/filter', regRouts.filter);
+app.get('/clear', regRouts.clear);
 
 
 

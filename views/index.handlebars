@@ -4,17 +4,17 @@
 
         <h1 class="center ">REGISTRATION</h1>
         {{#if messages.info}}
-        <div class="massage" style="color: red; padding-left:35% ">
+        <div class="massage" style="color: red; padding-left:3% ">
             <h1> {{messages.info}}</h1>
         </div>
         {{/if}}
 
         <br>
-       
+
 
         <form action="/registration" method="POST" class="input-class">
             <div class="filter">
-                <p style="color:white ;" > Eg.. CA 123 123 /CY 123-123 /123-123 EC /123 123 EC </p>
+                <p style="color:white ;"> Eg.. CA 123 123 /CY 123-123 /123-123 EC /123 123 EC </p>
                 <div style="font-size:50px;">
 
                     <input type="text" name="regNumber" class="regNumberEnterd" placeholder="Enter a registration"
@@ -52,8 +52,7 @@
 
         <br></br>
 
-        <div class="regNumbers"
-            style="margin-left: 33%; margin-right:33%; "> 
+        <div class="regNumbers" style="margin-left: 33%; margin-right:33%; ">
 
 
             {{#each regNumbers}}
